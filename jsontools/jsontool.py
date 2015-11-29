@@ -9,7 +9,8 @@ class Serializer(object):
             return str(data)
         if isinstance(data, str):
             return '"' + data + '"'
-
+        if isinstance(data, bool):
+            return str(data)
 
 class Parser(object):
 
