@@ -1,3 +1,5 @@
+import re
+
 class Serializer(object):
 
     def serialize(self, data):
@@ -8,9 +10,10 @@ class Serializer(object):
         if isinstance(data, (int, float)):
             return str(data)
         if isinstance(data, str):
-            return '"' + data + '"'
+            return '"' + data.replace('\\', '\\\\').replace('\"', '\\"').replace('"', '\"') + '"'
         if isinstance(data, bool):
             return str(data)
+
 
 class Parser(object):
 
