@@ -13,6 +13,8 @@ class Serializer(object):
             return '"' + data.replace('\\', '\\\\').replace('\"', '\\"').replace('"', '\"') + '"'
         if isinstance(data, bool):
             return str(data)
+        if data is None:
+            return 'null'
 
 
 class Parser(object):
